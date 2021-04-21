@@ -477,7 +477,8 @@ img {
 
   transform: scaleY(0);
   transform-origin: bottom;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--animation), box-shadow var(--animation),
+    color var(--animation);
   /* opasity 250ms cubic-bezier(0.4, 0, 0.2, 1); */
 }
 .portfolio-list .link:hover,
@@ -547,9 +548,7 @@ img {
 
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-/* input {
-  padding: 0;
-} */
+
 .form {
   padding: 40px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
@@ -563,6 +562,7 @@ img {
 .form-title {
   font-weight: bold;
   font-size: 20px;
+  line-height: 1.15;
   text-align: center;
   letter-spacing: 0.03em;
   margin-bottom: 12px;
@@ -586,11 +586,11 @@ img {
 }
 
 .form-input {
-  width: 100%;
+  width: 448px;
   outline: none;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
-  padding: 12px 42px;
+  padding: 11px 41px;
 
   font-family: Roboto, sans-serif;
   font-style: normal;
@@ -599,20 +599,29 @@ img {
   line-height: 1.15;
   letter-spacing: 0.01em;
 }
-.form-focus {
-  transition: border var(--animation), fill var(--animation);
-}
-.label-form:focus-within > .form-focus {
-  border: 1px solid var(--accent-blue);
-  fill: var(--accent-blue);
-}
 .form-icon {
   position: absolute;
   bottom: 14px;
   left: 15px;
 }
+.label-form .form-icon {
+  transition: border var(--animation), fill var(--animation);
+}
+.label-form:focus-within .form-icon {
+  border: 1px solid var(--accent-blue);
+  fill: var(--accent-blue);
+  border: none;
+}
+.label-form .form-input {
+  transition: border var(--animation), border-color var(--animation);
+}
+.label-form:focus-within .form-input {
+  border: 1px solid var(--accent-blue);
+  border-color: var(--accent-blue);
+}
+
 .form-input-area {
-  padding: 12px 16px;
+  padding: 11px 15px;
   resize: none;
   font-size: 12px;
   line-height: 1.17;
@@ -635,14 +644,14 @@ img {
 }
 .checkbox {
   display: inline-block;
-  width: 14px;
-  height: 13px;
+  width: 16px;
+  height: 15px;
   border: 2px solid var(--text-black);
   border-radius: 2px;
 }
 .agreement {
   display: inline-block;
-  margin: 0 auto 30px;
+  margin-bottom: 30px;
 }
 .agreement-text {
   font-weight: normal;
@@ -687,13 +696,13 @@ img {
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
-  line-height: 1.71;
+  line-height: 1.55;
 }
 
 .footer-address .link-contact {
   display: block;
   font-size: 14px;
-  line-height: 1.71;
+  line-height: 1.55;
   cursor: default;
   font-style: normal;
 }
@@ -727,7 +736,7 @@ img {
   display: flex;
   flex-direction: row;
   padding-top: 15px;
-  padding-bottom: 49px;
+  padding-bottom: 32px;
   margin-left: 93px;
 }
 .footer-form-text {
